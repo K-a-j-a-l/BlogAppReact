@@ -40,10 +40,13 @@
 .sidebarList {
     list-style: none;
     margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .sidebarListItem {
-    display: inline-block;
+    display: flex;
     width: 50%;
     margin-top: 15px;
     cursor: pointer;
@@ -57,8 +60,8 @@
     justify-content: center;
 }
 
-.sidebarIcon {
-    font-size: 15px;
+.SidebarIcon {
+    font-size: 20px;
     margin-left: 10px;
     cursor: pointer;
 }

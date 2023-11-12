@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom"
 import "./post.css"
 
 export default function post() {
     return ( <
         div className = "post" >
+        <
+        Link className = "link"
+        to = "/post/123" >
         <
         img className = "postImg"
         src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIJyAysig1f5wB6lo28tpQI9cBxizV1KwZSBm98THuWA&s"
@@ -23,6 +27,9 @@ export default function post() {
         p className = "postDesc" >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis. <
         /p> <
+        /Link>
+
+        <
         /div>
 
     )

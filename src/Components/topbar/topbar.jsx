@@ -1,6 +1,8 @@
 import React from 'react'
 import "./topbar.css";
+import { Link } from 'react-router-dom';
 export default function topbar() {
+    const user = false
     return ( <
         div className = "top" >
         <
@@ -15,18 +17,46 @@ export default function topbar() {
         <
         ul className = "topList" >
         <
-        li className = 'topListItem' > HOME < /li> <
-        li className = 'topListItem' > ABOUT < /li> <
-        li className = 'topListItem' > CONTACT < /li> <
-        li className = 'topListItem' > WRITE < /li> <
-        li className = 'topListItem' > LOGOUT < /li> <
+        li className = 'topListItem' >
+        <
+        Link className = "link"
+        to = "/" > HOME < /Link> <
+        /li> <
+        li className = 'topListItem' >
+        <
+        Link className = "link"
+        to = "/" > ABOUT < /Link> <
+        /li> <
+        li className = 'topListItem' >
+        <
+        Link className = "link"
+        to = "/" > CONTACT < /Link> <
+        /li> <
+        li className = 'topListItem' >
+        <
+        Link className = "link"
+        to = "/" > WRITE < /Link> <
+        /li> <
+        li className = 'topListItem' > { user && "LOGOUT" } < /li> <
         /ul> <
         /div> <
-        div className = "topRight" >
-        <
-        img className = "topImg"
-        src = "https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
-        alt = "user" / >
+        div className = "topRight" > {
+            user ? < img className = "topImg"
+            src = "https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+            alt = "user" / >
+            :
+                <
+                ul className = "topList" >
+                <
+                li className = 'topListItem' > < Link className = "link"
+            to = "/login" > LOGIN < /Link></li >
+            <
+            li className = 'topListItem' > < Link className = "link"
+            to = "/register" > REGISTER < /Link></li >
+            <
+            /ul>
+        }
+
         <
         i class = "searchIcon fa-solid fa-magnifying-glass" > < /i> <
         /div>
