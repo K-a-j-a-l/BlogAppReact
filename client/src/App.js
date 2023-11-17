@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Topbar from "./Components/topbar/topbar.jsx";
 import Home from "./Pages/home/home.jsx";
@@ -7,9 +7,10 @@ import Write from "./Pages/write/write.jsx";
 import Settings from "./Pages/settings/settings.jsx";
 import Login from "./Pages/login/login.jsx";
 import Register from "./Pages/register/register.jsx";
+import { Context } from "./context/Context.js";
 
 function App() {
-    const user = false;
+    const { user } = useContext(Context);
     return ( <
         Router >
         <
@@ -33,8 +34,8 @@ function App() {
         /> <
         Route path = "/settings"
         element = { user ? < Settings / > : < Register / > }
-        /> <
-        /Routes> <
+        /> < /
+        Routes > <
         /Router>
 
 

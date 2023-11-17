@@ -1,36 +1,35 @@
-import { Link } from "react-router-dom"
-import "./post.css"
+import { Link } from "react-router-dom";
+import "./post.css";
 
-export default function post() {
+export default function post({ post }) {
+    console.log(post);
     return ( <
         div className = "post" >
         <
         Link className = "link"
-        to = "/post/123" >
-        <
-        img className = "postImg"
-        src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIJyAysig1f5wB6lo28tpQI9cBxizV1KwZSBm98THuWA&s"
-        alt = "" / >
+        to = { `/post/${post._id}` } > {
+            post.photo && ( <
+                img className = "postImg"
+                src = { post.photo }
+                alt = "" / >
+            )
+        }
+
         <
         div className = "postInfo" >
         <
-        div className = "postCats" >
-        <
-        span className = "postCat" > Music < /span> <
-        span className = "postCat" > Life < /span> <
+        div className = "postCats" > {
+            /* {post.categories.map((c) => { 
+                          return  <span className = "postCat" > { c.name } </span>;
+                        })} */
+        } <
         /div> <
-        span className = "postTitle" > Lorem Ipsum < /span> <
-        hr / >
+        span className = "postTitle" > { post.title } < /span> <hr/ >
         <
-        span className = "postDate" > 1 hour ago < /span> <
+        span className = "postDate" > { new Date(post.createdAt).toDateString() } < /span> <
         /div> <
-        p className = "postDesc" >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nesciunt maiores illo praesentium dolor neque ipsum numquam blanditiis consequatur commodi vero harum nisi, cupiditate quo ducimus deserunt.Impedit reprehenderit saepe corporis. <
-        /p> <
-        /Link>
-
-        <
+        p className = "postDesc" > { post.desc } < /p> <
+        /Link>  <
         /div>
-
-    )
+    );
 }

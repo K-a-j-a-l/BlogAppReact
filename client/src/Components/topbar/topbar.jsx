@@ -1,67 +1,84 @@
-import React from 'react'
+import React, { useContext } from "react";
 import "./topbar.css";
-import { Link } from 'react-router-dom';
-export default function topbar() {
-    const user = false
+import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
+export default function Topbar() {
+    const { user, dispatch } = useContext(Context);
+    const handleLogout = (e) => {
+        dispatch({ type: "LOGOUT" })
+    }
     return ( <
         div className = "top" >
         <
         div className = "topLeft" >
         <
-        i className = "topIcon fa-brands fa-square-facebook" > < /i> <
-        i className = "topIcon fa-brands fa-square-twitter" > < /i> <
-        i className = "topIcon fa-brands fa-square-pinterest" > < /i> <
-        i className = "topIcon fa-brands fa-square-instagram" > < /i> <
-        /div> <
+        i className = "topIcon fa-brands fa-square-facebook" > < /i>{" "} <
+        i className = "topIcon fa-brands fa-square-twitter" > < /i>{" "} <
+        i className = "topIcon fa-brands fa-square-pinterest" > < /i>{" "} <
+        i className = "topIcon fa-brands fa-square-instagram" > < /i>{" "} <
+        /div>{" "} <
         div className = "topCenter" >
         <
         ul className = "topList" >
         <
-        li className = 'topListItem' >
+        li className = "topListItem" >
         <
         Link className = "link"
-        to = "/" > HOME < /Link> <
-        /li> <
-        li className = 'topListItem' >
+        to = "/" > { " " }
+        HOME { " " } <
+        /Link>{" "} <
+        /li>{" "} <
+        li className = "topListItem" >
         <
         Link className = "link"
-        to = "/" > ABOUT < /Link> <
-        /li> <
-        li className = 'topListItem' >
+        to = "/" > { " " }
+        ABOUT { " " } <
+        /Link>{" "} <
+        /li>{" "} <
+        li className = "topListItem" >
         <
         Link className = "link"
-        to = "/" > CONTACT < /Link> <
-        /li> <
-        li className = 'topListItem' >
+        to = "/" > { " " }
+        CONTACT { " " } <
+        /Link>{" "} <
+        /li>{" "} <
+        li className = "topListItem" >
         <
         Link className = "link"
-        to = "/" > WRITE < /Link> <
-        /li> <
-        li className = 'topListItem' > { user && "LOGOUT" } < /li> <
-        /ul> <
-        /div> <
-        div className = "topRight" > {
-            user ? < img className = "topImg"
-            src = "https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
-            alt = "user" / >
-            :
-                <
+        to = "/" > { " " }
+        WRITE { " " } <
+        /Link>{" "} <
+        /li>{" "} <
+        li className = "topListItem"
+        onClick = { handleLogout } > { user && "LOGOUT" } < /li>{" "} <
+        /ul>{" "} <
+        /div>{" "} <
+        div className = "topRight" > { " " } {
+            user ? ( <
+                img className = "topImg"
+                src = { user.profilePicture }
+                alt = "" /
+                >
+            ) : ( <
                 ul className = "topList" >
                 <
-                li className = 'topListItem' > < Link className = "link"
-            to = "/login" > LOGIN < /Link></li >
-            <
-            li className = 'topListItem' > < Link className = "link"
-            to = "/register" > REGISTER < /Link></li >
-            <
-            /ul>
-        }
-
-        <
-        i class = "searchIcon fa-solid fa-magnifying-glass" > < /i> <
+                li className = "topListItem" > { " " } <
+                Link className = "link"
+                to = "/login" > { " " }
+                LOGIN { " " } <
+                /Link>{" "} <
+                /li>{" "} <
+                li className = "topListItem" > { " " } <
+                Link className = "link"
+                to = "/register" > { " " }
+                REGISTER { " " } <
+                /Link>{" "} <
+                /li>{" "} <
+                /ul>
+            )
+        } { " " } <
+        i className = "searchIcon fa-solid fa-magnifying-glass" > < /i>{" "} <
+        /div>{" "} <
         /div>
-
-        <
-        /div>
-    )
+    );
 }

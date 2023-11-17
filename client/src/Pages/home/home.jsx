@@ -1,9 +1,22 @@
-import "./home.css"
-import Header from "../../Components/header/header.jsx"
-import Posts from "../../Components/posts/posts.jsx"
-import Sidebar from "../../Components/sidebar/sidebar.jsx"
+import "./home.css";
+import Header from "../../Components/header/header.jsx";
+import Posts from "../../Components/posts/posts.jsx";
+import Sidebar from "../../Components/sidebar/sidebar.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 
-export default function home() {
+export default function Home() {
+    const [posts, setPosts] = useState([]);
+    const { search } = useLocation();
+
+    useEffect(() => {
+        const fetchPosts = async() => {
+            const res = await axios.get("/posts" + search);
+            setPosts(res.data);
+        };
+        fetchPosts();
+    }, [search]);
     return ( <
         >
         <
@@ -11,12 +24,10 @@ export default function home() {
         <
         div className = "home" >
         <
-        Posts / >
+        Posts posts = { posts }
+        /> <Sidebar / >
         <
-        Sidebar / >
-        <
-        /div> <
+        /div>{" "} <
         />
-
-    )
+    );
 }
