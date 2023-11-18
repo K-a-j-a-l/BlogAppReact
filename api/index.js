@@ -5,6 +5,7 @@ const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
+const path = require("path");
 const app = express();
 mongoose.connect("mongodb://localhost:27017/blogReact").then(() => console.log("mongodb connected"));
 
@@ -12,7 +13,7 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "images")
     },
-    fileName: (req, file, cb) => {
+    filename: (req, file, cb) => {
         cb(null, req.body.name)
     }
 })
@@ -23,6 +24,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 })
 
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "/images")))
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);

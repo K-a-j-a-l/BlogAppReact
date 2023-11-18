@@ -16,29 +16,26 @@ function App() {
         <
         Topbar / >
         <
-        Routes > { /* Home Route */ } <
-        Route exact path = "/"
+        Routes > { " " } { /* Home Route */ } < Route exact path = "/"
         element = { < Home / > }
-        /> <
+        />{" "} <
         Route path = "/register"
         element = { user ? < Home / > : < Register / > }
-        /> <
+        />{" "} <
         Route path = "/login"
         element = { user ? < Home / > : < Login / > }
-        /> <
+        />{" "} <
         Route path = "/post/:postId"
         element = { < Single / > }
-        /> <
+        />{" "} <
         Route path = "/write"
         element = { user ? < Write / > : < Register / > }
-        /> <
+        />{" "} <
         Route path = "/settings"
         element = { user ? < Settings / > : < Register / > }
-        /> < /
-        Routes > <
+        />{" "} < /
+        Routes > { " " } <
         /Router>
-
-
     );
 }
 
